@@ -8,7 +8,7 @@ API REST para listagem e criação de contas bancárias, feita com Kotlin + Spri
 ./gradlew bootRun
 ```
 
-O servidor sobe na porta **8081**.
+O servidor sobe na porta **8080**.
 
 ## Endpoints
 
@@ -20,7 +20,7 @@ GET  /api/v1/accounts
 **Criar conta:**
 
 ```bash
-curl -X POST http://localhost:8081/api/v1/accounts \
+curl -X POST http://localhost:8080/api/v1/accounts \
   -H "Content-Type: application/json" \
   -d '{"name": "João Silva", "cpf": "12345678901"}'
 ```
@@ -28,7 +28,7 @@ curl -X POST http://localhost:8081/api/v1/accounts \
 **Listar contas:**
 
 ```bash
-curl http://localhost:8081/api/v1/accounts
+curl http://localhost:8080/api/v1/accounts
 ```
 
 ## Banco de dados
@@ -36,7 +36,7 @@ curl http://localhost:8081/api/v1/accounts
 H2 em memória. O console fica disponível em:
 
 ```
-http://localhost:8081/h2-console
+http://localhost:8080/h2-console
 JDBC URL: jdbc:h2:mem:testdb
 Username: sa
 Password: (vazio)
@@ -63,7 +63,7 @@ Para facilitar os testes, criei uma rota que popula o banco com 5 contas prontas
 **Disparar o seed:**
 
 ```bash
-curl -X POST http://localhost:8081/api/v1/seed
+curl -X POST http://localhost:8080/api/v1/seed
 ```
 
 A resposta indica o que foi criado e o que já existia (caso rode mais de uma vez):

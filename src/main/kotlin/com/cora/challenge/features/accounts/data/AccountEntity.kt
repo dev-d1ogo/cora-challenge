@@ -3,10 +3,8 @@ package com.cora.challenge.features.accounts.data
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
-import jakarta.persistence.PostLoad
-import jakarta.persistence.PostPersist
 import jakarta.persistence.Table
-import jakarta.persistence.Transient
+import jakarta.persistence.Version
 import org.springframework.data.domain.Persistable
 import java.util.*
 
@@ -32,16 +30,10 @@ class AccountEntity(
     val createdAt: Date = Date()
 ) : Persistable<UUID> {
 
-    @Transient
-    private var isNew: Boolean = true
+    @Version
+    var version: Long? = null
 
     override fun getId(): UUID = id
 
-    override fun isNew(): Boolean = isNew
-
-    @PostPersist
-    @PostLoad
-    fun markNotNew() {
-        isNew = false
-    }
+    override fun isNew(): Boolean = version == null
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080 #TO-DO: put that in .env
 
 spring:
   datasource:

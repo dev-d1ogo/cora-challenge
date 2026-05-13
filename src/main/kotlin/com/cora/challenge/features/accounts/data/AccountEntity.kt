@@ -12,7 +12,7 @@ import java.util.*
 @Table(name = "accounts")
 class AccountEntity(
     @Id
-    private val id: UUID = UUID.randomUUID(),
+    private val id: UUID,
 
     @Column(nullable = false)
     val name: String,
